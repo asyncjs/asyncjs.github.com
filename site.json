@@ -1,7 +1,7 @@
 {
   "title":      "Async",
-  "description": "A Web Tech Meetup for Brighton & Hove",
-  "caption":    "A Web Tech Meetup for _Brighton & Hove_",
+  "description": "An inclusive web tech meetup based in Brighton, UK",
+  "caption":    "An _inclusive_ web tech meetup based in _Brighton, UK_",
   "url":        "https://asyncjs.com",
   "email":      "hello@asyncjs.com",
   "feedburner": "http://feeds.feedburner.com/asyncjs",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Facebook",
-      "link": "https://www.facebook.com/pages/Async/533002916854919",
+      "link": "https://www.facebook.com/asyncjs/",
       "desc": "Like our page on Facebook"
     },
     {

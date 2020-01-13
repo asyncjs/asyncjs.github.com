@@ -1,46 +1,68 @@
 ---
+title: Home
 layout: base.html
+is_home: true
 ---
 
-{{#each headlines}}
-  <section class="module news" data-timestamp="{{ date }}">
-    <a href="/{{ path }}"><strong>News:</strong> {{ title }}</a>
-  </section>
-{{/each}}
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1>
+        Welcome to {{ site.title }}
+      </h1>
+      {{{ markdown site.caption }}}
+      {{> socialIcons}}
+    </div>
+  </div>
+</section>
 
-<section class="module event-detail">
-  <h2 class="module-heading">Next Event:</h2>
-  {{#each soonest}}
-    {{> eventDetail }}
+<div class="container">
+  <section class="module">
+    <h2 class="module-heading">{{{ iconmonstr 'about' }}}About</h2>
+    <p>
+      Async is an inclusive web tech meetup based in Brighton, UK. We meet on the first Thursday of the month to learn, discuss and play with web technologies. Everyone is welcome, from experienced professionals to those learning to code.
+    </p>
+    <p>
+      We host talks, hack nights, show n' tells and community events, all of which are free.
+      Doors open 7.15pm, main session begins 7.45pm, we end around 9.30pm and continue nearby for an evening social. Why not join us to learn about the web!
+    </p>
+    <p>
+      Read more about us <a href="/about">here</a>
+    </p>
+  </section>
+  {{#each headlines}}
+    <section class="module news" data-timestamp="{{ date }}">
+      <a href="/{{ path }}"><strong>News</strong> {{ title }}</a>
+    </section>
   {{/each}}
-  {{#unless soonest}}
-    <p class="prose">There are currently no upcoming events, stay tuned for more. You can follow us on <a href="https://twitter.com/asyncjs">Twitter</a> or subscribe to the <a href="/feed/">feed</a> for updates.</p>
-  {{/unless}}
-</section>
 
-<section class="module">
-  <section class="column upcoming-events">
-    <h2 class="module-heading">Upcoming Events:</h2>
-    <ul class="event-listing">
-      {{#each upcoming}}
-        <li class="event-item">{{> eventItem}}</li>
-      {{/each}}
-      {{#unless upcoming}}
-        <li class="empty">No further events are currently scheduled</li>
-      {{/unless}}
-    </ul>
-    <p class="read-more"><a href="/events/">View all events</a></p>
+  {{> nextEvent}}
+
+  <section class="module">
+    <section class="column upcoming-events">
+      <h2 class="module-heading">{{{ iconmonstr 'calendar-date' }}}Upcoming Events</h2>
+      <ul class="event-listing">
+        {{#each upcoming}}
+          <li class="event-item">{{> eventItem}}</li>
+        {{/each}}
+        {{#unless upcoming}}
+          <li class="empty">No further events are currently scheduled</li>
+        {{/unless}}
+      </ul>
+      <p class="read-more"><a href="/events/">View all events</a></p>
+    </section>
+    <section class="column past-events">
+      <h2 class="module-heading">{{{ iconmonstr 'calendar-clock' }}}Past Events</h2>
+      <ul class="event-listing">
+        {{#each past}}
+          <li class="event-item">{{> eventItem}}</li>
+        {{/each}}
+        {{#unless past}}
+          <li class="empty">There are no past events</li>
+        {{/unless}}
+      </ul>
+      <p class="read-more"><a href="/events/">View all events</a></p>
+    </section>
   </section>
-  <section class="column past-events">
-    <h2 class="module-heading">Past Events:</h2>
-    <ul class="event-listing">
-      {{#each past}}
-        <li class="event-item">{{> eventItem}}</li>
-      {{/each}}
-      {{#unless past}}
-        <li class="empty">There are no past events</li>
-      {{/unless}}
-    </ul>
-    <p class="read-more"><a href="/events/">View all events</a></p>
-  </section>
-</section>
+</div>

@@ -4,27 +4,35 @@
   <body>
     <div class="wrapper">
       {{> masthead}}
-      {{#if children}}
-        <section class="module links">
+
+      <div class="container">
+        <h1>
+          {{{ iconmonstr 'archive' }}}{{ title }}
+        </h1>
+        {{#if children}}
+          <section class="module links">
+            <h2 class="module-heading">
+              {{{ iconmonstr 'calendar' }}}Refine
+            </h2>
+            <ul>
+              {{#each children}}
+                <li><a href="/{{ path }}" title="{{ title }}">{{ title }}</a></li>
+              {{/each}}
+            </ul>
+          </section>
+        {{/if}}
+        <section class="module">
+          {{#unless children}}
+            <h2 class="module-heading">{{{ iconmonstr 'calendar' }}}{{ title }}</h2>
+          {{/unless}}
           <ul>
-            {{#each children}}
-              <li><a href="/{{ path }}" title="{{ title }}">{{ title }}</a></li>
+            {{#each posts}}
+              <li class="column event-item">{{> eventItem }}</li>
             {{/each}}
           </ul>
         </section>
-      {{/if}}
-      <section class="module">
-        {{#unless children}}
-          <h2 class="module-heading">{{ title }}:</h2>
-        {{/unless}}
-        <ul>
-          {{#each posts}}
-            <li class="column event-item">{{> eventItem }}</li>
-          {{/each}}
-        </ul>
-      </section>
-      {{> about}}
-      {{> links}}
+      </div>
+
       {{> footer}}
     </div>
   </body>

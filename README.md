@@ -6,12 +6,17 @@ Welcome to the repository for the Async website. The site is statically generate
 
 ## Running the server locally
 
-You'll need [node.js][#nodejs] >=12.6.0 and npm >=6.10.0 installed locally.
+You'll need [node.js][#nodejs] >=12.13.0 and npm >=6.10.0 installed locally.
 
 If you are using nvm, you can run the following to install and use node 12:
 
 ```bash
 nvm install
+```
+
+You will need to run the following each time you come to work on the site:
+
+```bash
 nvm use
 ```
 
@@ -24,7 +29,7 @@ npm i npm@6.10 -g
 Once you have the correct node and npm versions you can install project dependencies by running:
 
 ```bash
-$ npm install
+$ npm ci
 ```
 
 Then to start the server run the following from the project directory:

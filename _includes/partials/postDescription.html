@@ -5,7 +5,7 @@
     </a>
   {{/if}}
   {{{ contents }}}
-  {{#if post.lanyrd}}
-    <p class="sign-up prose">Thinking of coming? <a href="{{ post.lanyrd }}"><strong>Add yourself on Lanyrd</strong></a></p>
+  {{#if post.meetup}}
+    <p>Thinking of coming? {{> meetupLink link=post.meetup title=post.title text='Join us on Meetup'}}
   {{/if}}
 </section>
